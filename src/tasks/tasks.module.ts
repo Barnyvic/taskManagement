@@ -6,6 +6,8 @@ import { Task, TaskSchema } from './schema/tasks.schema';
 import { TaskRepository } from './repository/task.repository';
 import { UsersModule } from 'src/users/users.module';
 import { TasksService } from './tasks.service';
+import { TasksGateway } from './tasks/tasks.gateway';
+import { TasksGatewayGateway } from './tasks-gateway/tasks-gateway.gateway';
 
 @Module({
   imports: [
@@ -19,6 +21,6 @@ import { TasksService } from './tasks.service';
     CommonModule,
     UsersModule,
   ],
-  providers: [TaskRepository, TasksService],
+  providers: [TaskRepository, TasksService, TasksGateway, TasksGatewayGateway],
 })
 export class TasksModule {}

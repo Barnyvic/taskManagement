@@ -11,8 +11,11 @@ export class TaskRepository {
     @InjectModel(Task.name) private readonly taskModel: Model<TaskDocument>,
   ) {}
 
-  async create(task: Partial<Task>): Promise<Task> {
-    const createdTask = new this.taskModel(task);
+  async create(userId: string, task: Partial<Task>): Promise<Task> {
+    const createdTask = new this.taskModel({
+      ...task,
+      user: new Types.ObjectId(userId),
+    });
     return createdTask.save();
   }
 
