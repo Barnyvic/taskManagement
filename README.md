@@ -30,8 +30,8 @@ Welcome to the Task Management API documentation. This API allows users to manag
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/task-management-api.git
-   cd task-management-api
+   git clone https://github.com/Hinata-Akiro/taskManagement
+   cd taskManagement
    run *yarn* on your terminal to install the dependencies
 
 ### Environment configuration
