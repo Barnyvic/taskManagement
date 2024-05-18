@@ -32,7 +32,7 @@ Welcome to the Task Management API documentation. This API allows users to manag
    ```bash
    git clone https://github.com/Hinata-Akiro/taskManagement
    cd taskManagement
-   run *yarn* on your terminal to install the dependencies
+   run yarn on your terminal to install the dependencies
 
 ### Environment configuration
 
