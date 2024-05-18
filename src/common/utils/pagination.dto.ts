@@ -1,6 +1,7 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
+import { TaskPriority } from 'src/tasks/task.enum';
 
 export class PagingOptions {
   @ApiPropertyOptional()
@@ -23,11 +24,6 @@ export class PagingOptions {
 
   @ApiPropertyOptional()
   @IsOptional()
-  @Type(() => Boolean)
-  @IsBoolean()
-  draft?: boolean;
-
-  getSortObject() {
-    return this.sort === 'asc' ? 1 : -1 || -1;
-  }
+  @IsEnum(TaskPriority)
+  status?: TaskPriority;
 }

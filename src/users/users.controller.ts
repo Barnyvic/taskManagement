@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Put, UseGuards, Request } from '@nestjs/common';
 import { UsersService } from './users.service';
 import {
   ApiOperation,
@@ -17,13 +17,11 @@ export class UsersController {
 
   @ApiOperation({ summary: 'Update user by ID' })
   @ApiBody({ type: PartialType<User> })
-  @Put(':userId/update-user')
+  @Put('/update-user')
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
-  update(
-    @Param('userId') userId: string,
-    @Body() updateUserData: Partial<User>,
-  ) {
+  update(@Request() req, @Body() updateUserData: Partial<User>) {
+    const { _id: userId } = req.user;
     return this.usersService.UpdateUser(userId, updateUserData);
   }
 }
